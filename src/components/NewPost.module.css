@@ -10,7 +10,7 @@
   .form label {
     display: block;
     margin-bottom: 0.05rem;
-    color: var(--deep-blue);
+    color: var(--navy-blue);
     font-weight: bold;
   }
   
@@ -23,7 +23,7 @@
     border-radius: 6px;
     border: none;
     background-color: var(--blue-green);
-    color: var(--deep-blue);
+    color: var(--navy-blue);
   }
   
   .actions {

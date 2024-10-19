@@ -1,6 +1,6 @@
 import PostsList from "./components/PostsList"
 
-function App() {
+const App = () => {
 
   return (
     <main>

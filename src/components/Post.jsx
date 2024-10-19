@@ -1,6 +1,6 @@
 import styles from './Post.module.css';
 
-function Post(props) {
+const Post = (props) => {
    
     return <li className={styles.post}>
         <p className={styles.author}>{props.author}</p> 
