@@ -1,3 +1,5 @@
+// next 589
+
 import { useState } from 'react';
 // hooks ändern etwas im component sind funktionen in react die mit use anfangen nennt man hooks und sind eigentlich normale js funktionen (müssen aber in einer react component ausgeführt werden - sonst gehts nicht) die vorgefertigt wurden und dann kann man sie nutzen oder man baut sie halt selbst...
 // state muss dann im component rgistriert werden als ein stück vom state - also ein bestimmter zustand
