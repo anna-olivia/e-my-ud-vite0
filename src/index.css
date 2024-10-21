@@ -21,7 +21,6 @@
   background-color: var(--background-color);
   background-image: url(../src/assets/layered-steps-bg.svg);
   background-repeat: no-repeat;
-  background-size: 100vw 100vh;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
