@@ -7,8 +7,8 @@ const MainHeader = ({ onCreatePost }) => {
   return (
     <header className={styles.header}>
       <h1 className={styles.logo}>
-        <MdMessage />
-        Annas Pinnwand
+        {/* <MdMessage /> */}
+        <span className={styles.heading}>Annas Pinnwand</span>
       </h1>
       <div>
         <button className={styles.button} onClick={onCreatePost}>

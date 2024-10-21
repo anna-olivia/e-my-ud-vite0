@@ -31,7 +31,14 @@
 body {
   margin: 0;
   color: var(--navy-blue);
+  position: relative;
  
- 
+}
+
+#root {
+  background-color: rgb(5, 68, 94,0.1);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
 }
  

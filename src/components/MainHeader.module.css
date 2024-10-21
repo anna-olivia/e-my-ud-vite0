@@ -10,7 +10,19 @@
     align-items: center;
     border-bottom: 2px solid var(--baby-blue);
     /* ein bisschen hübscher für mobile */
-    line-height: 2em;
+    line-height: 4em;
+  }
+
+  .heading {
+    background-image: url(../assets/colorful-6965_256.gif);
+    /* background-image: url(../assets/background-7262229_640.jpg);
+    background-position: 250px 50px; */
+    background-clip: text;
+    /* color: rgba(255, 255, 255, 0.2); */
+    color: transparent;
+    font-weight: bolder;
+    font-size: 2em;
+    
   }
   
   .logo {
@@ -19,6 +31,7 @@
     /* gap: 0.75rem; */
     align-items: center;
     color: var(--baby-blue);
+    
   }
   
   .button {
