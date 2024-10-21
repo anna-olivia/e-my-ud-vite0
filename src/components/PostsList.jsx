@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import Modal from './Modal'
-import NewPost from './NewPost'
-import Post from "./Post"
-import styles from './PostsList.module.css'
+import Modal from './Modal';
+import NewPost from './NewPost';
+import Post from "./Post";
+import styles from './PostsList.module.css';
 
-const PostsList = () => {
+// state uplifting, damit alles in app.jsx verfügbar gemacht wird
+
+const PostsList = ({isPosting, onStopPosting}) => {
     const [currentMessage,setCurrentMessage] = useState('');
     const [currentAuthor, setCurrentAuthor] = useState('');
+  
 
     const changeMessageHandler = (e) => {
         setCurrentMessage(e.target.value);
@@ -16,20 +19,16 @@ const PostsList = () => {
         setCurrentAuthor(e.target.value);
     }
 
-    const [modalVisible, setModalVisible] = useState(true);
-    // modal ist sichtbar deswegen auf true
-    // state wurde gesetzt aber currentValue ist noch nicht klar deswegen 3. schritt bedingung - also true -> 
 
-const closeModalHandler = () => {
-setModalVisible(false);
-}
     return(
         <>
-        {modalVisible ?  <Modal onClose={closeModalHandler}>
+{/* value name geändert damit es leichter weitergegeben werden kann, übersichtlciher wird und nicht verwechselt wird mit handlerfkt - hier soll onStopPosting auch nur ein Pointer auf closeModalHandler werden - isPosting is dann modalVisible Wert*/}
+        {isPosting ?  <Modal onClose={onStopPosting}>
         <NewPost
-        onMessageChange={changeMessageHandler} onAuthorChange={changeAuthorHandler}/>
+        onMessageChange={changeMessageHandler} onAuthorChange={changeAuthorHandler} onCancel={onStopPosting}/>
         </Modal> : false }
-        {/* hier könnte ich auch : null schreiben weil auch nichts zeigt  */}
+         {/* kann auch null schreiben beides in dem fall das gleiche weil modal ja nicht gezeigt werden soll also wird useState auf false gesetzt oder null was dann das gleiche bedeuten würde */}
+
        
         <ul className={styles.posts}>
              <Post author={currentAuthor}  message={currentMessage}/>

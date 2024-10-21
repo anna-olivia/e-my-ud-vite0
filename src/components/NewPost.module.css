@@ -27,16 +27,20 @@
     color: var(--navy-blue);
   }
   
+  /* die weiteren klassen sind für die btn im modal submit und abbrechen */
+  /* hier wird anstatt einer div box dann das p die zwei buttons wrappen */
+  /* wie auch in der ganzen Form p's label und input verschachteln */
   .actions {
     display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 2rem;
   }
   
   .actions button {
     cursor: pointer;
     font: inherit;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.5rem 0.3rem;
     border: none;
     border-radius: 4px;
     background-color: var(--complementary-color);
@@ -48,7 +52,8 @@
   }
   
   .actions button[type='button'] {
-    background-color: transparent;
+    background-color: var(--blue-green);
+
   }
   
   .actions button[type='button']:hover {

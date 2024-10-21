@@ -11,6 +11,7 @@ const Modal = ({ children, onClose }) => {
         <>
         <div className={styles.backdrop} onClick={onClose}/>
         {/* dadurch das hintergrund jetzt verdunkelt wird sollte auch NewPost.module.css geändert werden - damit es hervorgehoben wird */}
+        {/* wenn in den hintergrund geklickt wird soll das ganze modal mit dialogteil verschwinden */}
         <dialog open className={styles.modal}>
             {/* open Attribut gehört zum dialog element damit visibility true is ->  hier is default open immer true deswgen ann man auch ohne {true} schreiben */}
         {children}

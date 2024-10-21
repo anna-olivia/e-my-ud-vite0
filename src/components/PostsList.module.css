@@ -5,6 +5,12 @@
     padding: 1rem 0;
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(3, 30%);
+    grid-template-columns: repeat(2, 45%);
     justify-content: center;
+  }
+
+  @media screen and (min-width: 720px) {
+    .posts{
+    grid-template-columns: repeat(3, 30%);
+    }
   }
