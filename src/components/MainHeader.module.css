@@ -35,7 +35,7 @@
   }
 
 .icon {
-  font-size: 2em;
+  /* font-size: 2em; */
   color: var(--background-color)
 }  
   
@@ -61,5 +61,8 @@
   @media screen and (min-width: 400px) {
     .logo{
     gap: 1rem;
+    }
+    .icon {
+      font-size: 2em;
     }
   }
