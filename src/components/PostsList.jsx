@@ -33,11 +33,11 @@ const PostsList = ({ isPosting, onStopPosting }) => {
         false
       )}
       {/* kann auch null schreiben beides in dem fall das gleiche weil modal ja nicht gezeigt werden soll also wird useState auf false gesetzt oder null was dann das gleiche bedeuten würde */}
-
+      {currentPosts.length > 0 && (
+        
       <ul className={styles.posts}>
         {/* Post und zugehöriger state rausgenommen weil dynamisch mit eintrag bzw. form submission erstellt werden soll */}
-
-        {currentPosts
+{currentPosts
           .map((post) => ({
             ...post,
             id: uuidv4(),
@@ -47,6 +47,9 @@ const PostsList = ({ isPosting, onStopPosting }) => {
           ))}
         {/* solange es kein backend gibt gehts auch so- aber nicht sehr elegant */}
       </ul>
+      )}
+      {currentPosts.length === 0 && <div className={styles.platzhalter}>
+        <h2>Bis jetzt wurden noch keine Einträge gemacht.</h2></div>}
     </>
   );
 };

@@ -9,6 +9,13 @@
     justify-content: center;
   }
 
+  .platzhalter {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    color: var(--baby-blue);
+  }
+
   @media screen and (min-width: 720px) {
     .posts{
     grid-template-columns: repeat(3, 30%);

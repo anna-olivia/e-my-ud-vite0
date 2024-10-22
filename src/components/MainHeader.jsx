@@ -15,7 +15,8 @@ const MainHeader = ({ onCreatePost }) => {
       </h1>
       <div>
         <button className={styles.button} onClick={onCreatePost}>
-          <MdPostAdd size={18} />
+          <MdPostAdd size={24}/>
+          {/* größe hier über prop geändert */}
           Neuer Eintrag
         </button>
       </div>
