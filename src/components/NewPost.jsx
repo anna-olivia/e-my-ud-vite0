@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './NewPost.module.css';
 
-const NewPost = ({onCancel}) => {
+const NewPost = ({onCancel, onAddPost}) => {
   const [currentMessage,setCurrentMessage] = useState('');
   const [currentAuthor, setCurrentAuthor] = useState('');
 
@@ -23,7 +23,7 @@ const submitHandler = (e) => {
   // object sammelt und gruppiert dann werte aus state also currentMessage und currentAuthor
   // object fängt dann daten aus form ab ohne validierung (eigentlich müsste man noch client side validieren, ob richtiges eingegeben)
   // hier ohne validierung aber wenigstens mit require attribut
-  console.log(postData);
+  onAddPost(postData);
   onCancel();
   // hier wird dann die onCancel function aufgerufen, damit beim klicken des senden buttons auch das modal wieder schließt
   // hier halt unabhängig aufgerufen also sonst wär 

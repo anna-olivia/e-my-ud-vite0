@@ -3,12 +3,12 @@
 }
 
 :root {
-  --navy-blue: #05445E;
-  --baby-blue: #D4F1F4;
+  --navy-blue: #05445e;
+  --baby-blue: #d4f1f4;
   --blue-green: #75e6da;
-  --blue-grotto: #189AB4;
+  --blue-grotto: #189ab4;
   --complementary-color: #e68519;
---background-color: #140021;
+  --background-color: #140021;
   min-height: 100vh;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -32,13 +32,12 @@ body {
   margin: 0;
   color: var(--navy-blue);
   position: relative;
- 
+  
 }
 
 #root {
-  background-color: rgb(5, 68, 94,0.1);
+  background-color: rgb(5, 68, 94, 0.1);
   width: 100vw;
   height: 100vh;
   position: absolute;
 }
- 
