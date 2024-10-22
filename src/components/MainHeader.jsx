@@ -1,4 +1,4 @@
-import { MdPostAdd, MdMessage } from 'react-icons/md';
+import { MdPostAdd, MdMessage, MdBeachAccess } from 'react-icons/md';
 // muss man erstmal runterladen weil nicht in react direkt als paket enthalten also npm install react-icons
 
 import styles from './MainHeader.module.css';
@@ -8,7 +8,10 @@ const MainHeader = ({ onCreatePost }) => {
     <header className={styles.header}>
       <h1 className={styles.logo}>
         {/* <MdMessage /> */}
-        <span className={styles.heading}>Annas Pinnwand</span>
+        <span className={styles.icon}> 
+        <MdBeachAccess />
+        </span>
+        <span className={styles.heading}> Annas Pinnwand</span>
       </h1>
       <div>
         <button className={styles.button} onClick={onCreatePost}>

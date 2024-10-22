@@ -33,6 +33,11 @@
     color: var(--baby-blue);
     
   }
+
+.icon {
+  font-size: 2em;
+  color: var(--background-color)
+}  
   
   .button {
     display: inline-flex;
