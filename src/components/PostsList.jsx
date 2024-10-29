@@ -10,9 +10,13 @@ const PostsList = ({ isPosting, onStopPosting }) => {
   const [currentPosts, setCurrentPosts] = useState([]);
 
   const addPostHandler = (postData) => {
-    fetch('http://localhost:8080/posts',{ method: 'POST', body: JSON.stringify(postData), header: {'Content-type': 'application/json'}});
+    fetch('http://localhost:8080/posts',{
+      method: 'POST',
+      body: JSON.stringify(postData),
+      headers: {'Content-Type': 'application/json'}
+  });
     // mit der fetch funktion kann man daten bekommen aber auch senden
-    // fetch nimmt die url zu der die daten gesendet werden soll - hier halt irgendein port der in backend also in restapi festgelegt wurde und localhost weil es halt lokal aufm rechner nur läuft 
+    // fetch API nimmt die url zu der die daten gesendet werden soll - hier halt irgendein port der in backend also in restapi festgelegt wurde und localhost weil es halt lokal aufm rechner nur läuft 
     // strukturpfad /posts wenn ich einen neuen eintrag speichern will dann hier bei posts, weil schon erstellte posts mitgenommen werden sollen
     // fetch sendet ein get request, deswegen muss man dann als zweites argument die methode auf post ändern und die gesendeten postData in json umändern mit JSON.stringify
     // und ein header wird gebraucht
