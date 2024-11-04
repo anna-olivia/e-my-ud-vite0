@@ -17,7 +17,8 @@
     color: var(--baby-blue);
   }
 
-  .public {
+  .public p {
+    width: 80%;
     margin: auto;
     color: whitesmoke;
   }
