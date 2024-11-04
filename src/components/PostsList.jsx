@@ -53,7 +53,8 @@ const PostsList = ({ isPosting, onStopPosting }) => {
       {error && (
         <div className={styles.error}>
           <p>Error: {error} </p>
-          <button onClick={() => reload()}>Probier's nochmal</button>
+          <button onClick={() => reload()}>reload</button>
+          <p>Falls du die App über einen öffentlichen Link besuchst, dann kannst du die Fehlermeldung ignorieren, weil es noch kein Backend mit Datenbank Support gibt. Hier kannst du eigentlich nur Einträge machen und sehen, aber sobald du die Website aktualisierst verschwinden die Einträge</p>
         </div>
       )}
 
