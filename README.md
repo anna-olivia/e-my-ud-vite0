@@ -3,7 +3,6 @@
  In dieser WebApp können Einträge über eine Modulkomponente erstellt und auf Pinnwand angezeigt werden (mit minimalem Backendsupport)
 
 ![App-vorschau](./src/assets/vorschau.png)
-![App-vorschau-responsive](./src/assets/vorschau-responsive.png | width=80%)
 
 
 ## Technologien
