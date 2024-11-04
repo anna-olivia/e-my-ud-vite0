@@ -9,11 +9,28 @@
     justify-content: center;
   }
 
-  .platzhalter {
+  .platzhalter, .error {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 1rem;
     color: var(--baby-blue);
+  }
+
+  .error {
+    color: red;
+  }
+
+  .error button {
+    cursor: pointer;
+    font: inherit;
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: red;
+    color: #fff;
+    height: 50%;
+  
   }
 
   @media screen and (min-width: 720px) {

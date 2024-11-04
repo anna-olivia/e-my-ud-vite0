@@ -4,39 +4,46 @@ import NewPost from "./NewPost";
 import Post from "./Post";
 import styles from "./PostsList.module.css";
 
-// state uplifting, damit alles in app.jsx verfügbar gemacht wird
 
 const PostsList = ({ isPosting, onStopPosting }) => {
-  //fetch('http://localhost:8080/posts').then(response => response.json()).then(data => {setCurrentPosts(data.posts)});
-  // woher data.posts ? backend? nochmal checken
-  // deafult ist ja GET request also hier wollen wir ja die Daten von dem Port holen
-
+  
   const [currentPosts, setCurrentPosts] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState(null);
 
-// neuer State für buffering
-
-const [isFetching, setIsFetching] = useState(false);
-// sollte anfangs nicht bufferen wenn noch keine Einträge da sind
-// bei isFetching kann man jetzt also eine alternative oberfläche für user zeigen während aus backend daten gezogen werden
+  // test für error handling einfach backend server ausschalten - message is dann: {error && (
+//   <div className={styles.error}>
+//   <p>Error: {error}</p>
+//   <button onClick={() => fetchPosts()}>Try Again</button>
+// </div>
+// )}
 
 useEffect(()=> {
   async function fetchPosts() {
     setIsFetching(true);
-    // soll ja erstmal für user buffern bevor einträge geliefert werden
+    setError(null); //um vorherige Errors zu reseten
+  try {
     const response = await fetch('http://localhost:8080/posts');
-    const resData = await response.json();
-// Errorhandling bearbeiten
-//if(!response.ok){}
-
+   if(!response.ok){
+    throw new Error(`HTTP error! status: ${response.status}`);
+   }
+   const resData = await response.json();
   setCurrentPosts(resData.posts); 
+  } catch(e) {
+    setError(e.message || 'Irgendwas stimmt nicht!')
+  } finally {
   setIsFetching(false);
-
+  }  
   }
   fetchPosts();
   
 
 }, []);
-  
+const reload = () => {
+
+window.location.reload(true);
+}
+  // auch hier Error handling editieren 
   const addPostHandler = (postData) => {
     fetch('http://localhost:8080/posts',{
       method: 'POST',
@@ -56,9 +63,14 @@ useEffect(()=> {
       ) : (
         false
       )}
+{error && (
+  <div className={styles.error}>
+    <p>Error: {error} </p>
+    <button onClick={() => reload()}>Probier's nochmal</button>
+  </div>
+)}
 
       {!isFetching && currentPosts.length > 0 && (
-        // !isFetching also nur wenn gerade nicht Einträge vom backend gefetched werden
       <ul className={styles.posts}>
        
 {currentPosts.map((post) => (
@@ -67,9 +79,8 @@ useEffect(()=> {
         
       </ul>
       )}
-      {!isFetching && currentPosts.length === 0 && (
+      {!error && !isFetching && currentPosts.length === 0 && (
         <div className={styles.platzhalter}>
-        {/* !isFetching wenn keine Einträge da sind soll auch nichts gefetched werden also keine Buffering Komponente nötig */}
         <h2>Bis jetzt wurden noch keine Einträge gemacht.</h2>
         </div>
       )}
@@ -78,8 +89,8 @@ useEffect(()=> {
             <p> Loading ...</p>
           </div> )
           }
-        {/* hier kannste ja später nette ani machen */}
-    </>
+
+       </>
   );
 };
 
