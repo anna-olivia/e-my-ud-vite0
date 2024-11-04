@@ -11,17 +11,14 @@ const PostsList = ({ isPosting, onStopPosting }) => {
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState(null);
 
-  // test für error handling einfach backend server ausschalten - message is dann: {error && (
-//   <div className={styles.error}>
-//   <p>Error: {error}</p>
-//   <button onClick={() => fetchPosts()}>Try Again</button>
-// </div>
-// )}
-
-useEffect(()=> {
+// Demo für Daten bekommen und interaktion mit Backend
+  useEffect(()=> {
   async function fetchPosts() {
     setIsFetching(true);
-    setError(null); //um vorherige Errors zu reseten
+// hier halt nur Demo deswegen is Daten bekommen also vom backend nicht der rede wert weil lokal, aber es kann bei hosting auch länger dauern und dadurch ist fetch mit setIsFetching also mit Buffering Komponente ne gute UX - um ein langsames backend zu simulieren -> in backend/app.js:
+ // await new Promise((resolve, reject) => setTimeout(() => resolve(), 1500));
+   
+ setError(null); //um vorherige Errors zu reseten
   try {
     const response = await fetch('http://localhost:8080/posts');
    if(!response.ok){
@@ -44,6 +41,9 @@ const reload = () => {
 window.location.reload(true);
 }
   // auch hier Error handling editieren 
+
+// Demo für Daten in UI setzen und interaktion mit Backend
+
   const addPostHandler = (postData) => {
     fetch('http://localhost:8080/posts',{
       method: 'POST',
