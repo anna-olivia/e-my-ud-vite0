@@ -17,6 +17,10 @@
     color: var(--baby-blue);
   }
 
+  .public {
+    margin: auto;
+  }
+
   .error {
     color: red;
   }
