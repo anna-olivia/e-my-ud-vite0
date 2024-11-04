@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "./Modal";
 import NewPost from "./NewPost";
 import Post from "./Post";
@@ -7,19 +7,42 @@ import styles from "./PostsList.module.css";
 // state uplifting, damit alles in app.jsx verfügbar gemacht wird
 
 const PostsList = ({ isPosting, onStopPosting }) => {
+  //fetch('http://localhost:8080/posts').then(response => response.json()).then(data => {setCurrentPosts(data.posts)});
+  // woher data.posts ? backend? nochmal checken
+  // deafult ist ja GET request also hier wollen wir ja die Daten von dem Port holen
+
   const [currentPosts, setCurrentPosts] = useState([]);
 
+// neuer State für buffering
+
+const [isFetching, setIsFetching] = useState(false);
+// sollte anfangs nicht bufferen wenn noch keine Einträge da sind
+// bei isFetching kann man jetzt also eine alternative oberfläche für user zeigen während aus backend daten gezogen werden
+
+useEffect(()=> {
+  async function fetchPosts() {
+    setIsFetching(true);
+    // soll ja erstmal für user buffern bevor einträge geliefert werden
+    const response = await fetch('http://localhost:8080/posts');
+    const resData = await response.json();
+// Errorhandling bearbeiten
+//if(!response.ok){}
+
+  setCurrentPosts(resData.posts); 
+  setIsFetching(false);
+
+  }
+  fetchPosts();
+  
+
+}, []);
+  
   const addPostHandler = (postData) => {
     fetch('http://localhost:8080/posts',{
       method: 'POST',
       body: JSON.stringify(postData),
       headers: {'Content-Type': 'application/json'}
   });
-    // mit der fetch funktion kann man daten bekommen aber auch senden
-    // fetch API nimmt die url zu der die daten gesendet werden soll - hier halt irgendein port der in backend also in restapi festgelegt wurde und localhost weil es halt lokal aufm rechner nur läuft 
-    // strukturpfad /posts wenn ich einen neuen eintrag speichern will dann hier bei posts, weil schon erstellte posts mitgenommen werden sollen
-    // fetch sendet ein get request, deswegen muss man dann als zweites argument die methode auf post ändern und die gesendeten postData in json umändern mit JSON.stringify
-    // und ein header wird gebraucht
     setCurrentPosts((posts) => [postData, ...posts]);
 
   };
@@ -34,8 +57,8 @@ const PostsList = ({ isPosting, onStopPosting }) => {
         false
       )}
 
-      {currentPosts.length > 0 && (
-        
+      {!isFetching && currentPosts.length > 0 && (
+        // !isFetching also nur wenn gerade nicht Einträge vom backend gefetched werden
       <ul className={styles.posts}>
        
 {currentPosts.map((post) => (
@@ -44,8 +67,18 @@ const PostsList = ({ isPosting, onStopPosting }) => {
         
       </ul>
       )}
-      {currentPosts.length === 0 && <div className={styles.platzhalter}>
-        <h2>Bis jetzt wurden noch keine Einträge gemacht.</h2></div>}
+      {!isFetching && currentPosts.length === 0 && (
+        <div className={styles.platzhalter}>
+        {/* !isFetching wenn keine Einträge da sind soll auch nichts gefetched werden also keine Buffering Komponente nötig */}
+        <h2>Bis jetzt wurden noch keine Einträge gemacht.</h2>
+        </div>
+      )}
+        {isFetching && (
+          <div className={styles.platzhalter}>
+            <p> Loading ...</p>
+          </div> )
+          }
+        {/* hier kannste ja später nette ani machen */}
     </>
   );
 };
