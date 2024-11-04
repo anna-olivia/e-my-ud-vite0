@@ -105,7 +105,9 @@ Der Server sollte jetzt auf `http://localhost:8080` laufen.
 
 Nach dem Start der Backend- und Frontend-Server kannst du die Pinwand App im Browser unter `http://localhost:5173` aufrufen.
 
-
+<br/>
+<br/>
+<br/>
 -----------------------------------------------------------------------------------
 
 [¹] This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
