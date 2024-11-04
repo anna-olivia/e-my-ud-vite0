@@ -51,11 +51,15 @@ const PostsList = ({ isPosting, onStopPosting }) => {
         false
       )}
       {error && (
+        <>
+        <div className={styles.public}>
+        <p>Falls du die App über einen öffentlichen Link besuchst, dann kannst du die Fehlermeldung ignorieren, weil es noch kein Backend mit Datenbank Support gibt. Hier kannst du eigentlich nur Einträge machen und sehen, aber sobald du die Website aktualisierst verschwinden die Einträge</p>
+        </div>
         <div className={styles.error}>
           <p>Error: {error} </p>
           <button onClick={() => reload()}>reload</button>
-          <p>Falls du die App über einen öffentlichen Link besuchst, dann kannst du die Fehlermeldung ignorieren, weil es noch kein Backend mit Datenbank Support gibt. Hier kannst du eigentlich nur Einträge machen und sehen, aber sobald du die Website aktualisierst verschwinden die Einträge</p>
         </div>
+        </>
       )}
 
       {!isFetching && currentPosts.length > 0 && (
