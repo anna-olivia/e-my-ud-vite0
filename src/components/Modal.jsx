@@ -1,24 +1,14 @@
-import styles from './Modal.module.css'
-
+import styles from "./Modal.module.css";
 
 const Modal = ({ children, onClose }) => {
-    // object destructuring anstatt immer props mit danach dot notation
-    // reserved prop name
-    // verweist auf Kind Element Komponente also auf das was zwischen hier Modal gerendert werden soll - hier newpost komponente
-
-
-    return(
-        <>
-        <div className={styles.backdrop} onClick={onClose}/>
-        {/* dadurch das hintergrund jetzt verdunkelt wird sollte auch NewPost.module.css geändert werden - damit es hervorgehoben wird */}
-        {/* wenn in den hintergrund geklickt wird soll das ganze modal mit dialogteil verschwinden */}
-        <dialog open className={styles.modal}>
-            {/* open Attribut gehört zum dialog element damit visibility true is ->  hier is default open immer true deswgen ann man auch ohne {true} schreiben */}
+  return (
+    <>
+      <div className={styles.backdrop} onClick={onClose} />
+      <dialog open className={styles.modal}>
         {children}
-        {/* reserved prop name */}
-        </dialog>
-        </>
-    )
-}
+      </dialog>
+    </>
+  );
+};
 
 export default Modal;

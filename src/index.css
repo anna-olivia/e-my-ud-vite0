@@ -14,10 +14,6 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  /* background-image: radial-gradient(ellipse at top left, var(--blue-grotto), var(--blue-green)); */
-  /* background-image: url(../src/assets/circle-scatter-bg.svg); */
-  /* background-image: url(../src/assets/layered-steps-bg.svg);
-  background-repeat: no-repeat; */
   background-color: var(--background-color);
   background-image: url(../src/assets/layered-steps-bg.svg);
   background-repeat: no-repeat;

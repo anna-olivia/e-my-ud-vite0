@@ -1,5 +1,4 @@
 .backdrop {
-    /* div als grauschwarze Folie wird pinnwand ausgrauen, damit modal im vordergrund also die newpost componente hervorgehoben ist */
     position: fixed;
     top: 0;
     left: 0;

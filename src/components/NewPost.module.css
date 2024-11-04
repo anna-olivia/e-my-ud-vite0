@@ -2,10 +2,6 @@
     background-color: var(--baby-blue);
     padding: 1rem;
     width: 20rem;
-    /* margin: 2rem auto;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
-    /* wird rausgenommen sobald form als modal hervorgehoben wird  */
   }
   
   .form label {
@@ -27,9 +23,6 @@
     color: var(--navy-blue);
   }
   
-  /* die weiteren klassen sind für die btn im modal submit und abbrechen */
-  /* hier wird anstatt einer div box dann das p die zwei buttons wrappen */
-  /* wie auch in der ganzen Form p's label und input verschachteln */
   .actions {
     display: flex;
     justify-content: flex-start;

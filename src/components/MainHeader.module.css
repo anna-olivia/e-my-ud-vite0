@@ -1,72 +1,61 @@
 .header {
-    /* padding: 2rem 10%; */
-    margin: 2rem 10%;
-    padding: 1rem;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    /* damit es nicht so gequetscht ist bei mobile - aber muss eh nochmal ausgebessert werden */
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--baby-blue);
-    /* ein bisschen hübscher für mobile */
-    line-height: 4em;
-  }
+  margin: 2rem 10%;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--baby-blue);
+  line-height: 4em;
+}
 
-  .heading {
-    background-image: url(../assets/colorful-6965_256.gif);
-    /* background-image: url(../assets/background-7262229_640.jpg);
-    background-position: 250px 50px; */
-    background-clip: text;
-    /* color: rgba(255, 255, 255, 0.2); */
-    color: transparent;
-    font-weight: bolder;
-    font-size: 2em;
-    
-  }
-  
-  .logo {
-    font-size: 2rem;
-    display: flex;
-    /* gap: 0.75rem; */
-    align-items: center;
-    color: var(--baby-blue);
-    
-  }
+.heading {
+  background-image: url(../assets/colorful-6965_256.gif);
+  background-clip: text;
+  color: transparent;
+  font-weight: bolder;
+  font-size: 2em;
+}
+
+.logo {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  color: var(--baby-blue);
+}
 
 .icon {
   display: none;
-  color: var(--background-color)
-}  
-  
-  .button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--complementary-color);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1em;
-  }
-  
-  .button:hover {
-    background-color: var(--blue-green);
-    color: var(--navy-blue);
-  }
+  color: var(--background-color);
+}
 
-  @media screen and (min-width: 400px) {
-    .logo{
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--complementary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.button:hover {
+  background-color: var(--blue-green);
+  color: var(--navy-blue);
+}
+
+@media screen and (min-width: 400px) {
+  .logo {
     gap: 1rem;
-    }
-    .icon {
-      display: inline-block;
-  font-size: 2em;
-
-    }
-  
   }
+  .icon {
+    display: inline-block;
+    font-size: 2em;
+  }
+}
